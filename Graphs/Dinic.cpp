@@ -43,7 +43,7 @@ int lim;
 void add_edge(int a, int b, int c, int ind) {                                                                           
 	edge ed;
 
-    //keep edges in vector: e[ind] - direct edge, e[ind ^ 1] - back edge 
+	//keep edges in vector: e[ind] - direct edge, e[ind ^ 1] - back edge 
 	
 	ed.a = a; ed.b = b; ed.f = 0; ed.c = c; ed.ind = ind;
 	g[a].push_back(e.size());
@@ -110,11 +110,6 @@ void dinic() {
 			lim >>= 1;
 			continue;
 		}
-	 
-	    /*cout << lim << endl;
-	    for (int i = 1; i <= n; i++) 
-	    	printf("%d ", d[i]);
-	    printf("\n\n");*/ 
 
 		for (int i = 1; i <= n; i++) 
 			pt[i] = 0;

@@ -1,8 +1,8 @@
 /**********************************************************************************
     
-     Convex Hull [ Graham-Andrew method, O(NlogN) ]
-  	 Based on problem 638 from informatics.mccme.ru: 
-  	 http://informatics.mccme.ru/mod/statements/view3.php?chapterid=638#1
+	Convex Hull [ Graham-Andrew method, O(NlogN) ]
+	Based on problem 638 from informatics.mccme.ru: 
+	http://informatics.mccme.ru/mod/statements/view3.php?chapterid=638#1
 
 **********************************************************************************/
 

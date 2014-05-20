@@ -1,9 +1,9 @@
 /************************************************************************
-    
-     Suffix Tree. Ukkonen's algorithm using sibling lists — O(N).
-	 
-	 This code counts number of different substrings in the string.
-	 Based on problem I from here: http://codeforces.ru/gym/100133
+
+	Suffix Tree. Ukkonen's algorithm using sibling lists — O(N).
+
+	This code counts number of different substrings in the string.
+	Based on problem I from here: http://codeforces.ru/gym/100133
 
 ************************************************************************/
 
@@ -135,13 +135,13 @@ void st_insert(int c) {
 			}
 			int split = add_node(tree[go].from, tree[go].from + active_len);
 			int leaf = add_node(pos, inf);
-		
+
 			change_edge(active_node, active_edge(), split);
 			insert_edge(split, go);
 			insert_edge(split, leaf);
 
 			tree[go].from = tree[go].from + active_len;
-			
+
 			addSL(split);
 		}
 		rem--;

@@ -1,14 +1,14 @@
 /*****************************************************************
-    
+
 	Calculation of the value of the expression. 
 	Uses recursive descent parser. Supports doubles.
 
 	Available operations: 
-		+ - / *     Usual meaning
-		-			Unary minus
-		#			Root (3 # 8 = 2)
-		^			Power (2 ^ 3 = 8)
-		#			Square root (unary)
+	+ - / *     Usual meaning
+	-			Unary minus
+	#			Root (3 # 8 = 2)
+	^			Power (2 ^ 3 = 8)
+	#			Square root (unary)
 
 	TODO: find a good problem on it
 
@@ -64,7 +64,7 @@ double factor() {
 		res = exp();
 		p++;
 		return res;
- 	}
+	}
 	if (s[p] == '-') {
 		p++;
 		res = interm();
@@ -147,7 +147,7 @@ double exp() {
 void remove_whitespaces(string &s) {
 	string temp = s;
 	s = "";
-	
+
 	for (int i = 0; i < (int) temp.length(); i++)
 		if (temp[i] != ' ')
 			s.append(1, temp[i]);
