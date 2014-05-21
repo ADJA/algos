@@ -1,6 +1,8 @@
 /*************************************************************************************
     
-	Fenwick tree for sum on the interval and update of an element
+	Fenwick tree for sum on the interval and update of an element.	
+	O(NlogN) on operation.
+	
 	Based on problem 3317 from informatics.mccme.ru: 
 	http://informatics.mccme.ru/moodle/mod/statements/view.php?chapterid=3317#1
 
