@@ -4,6 +4,7 @@
      Based on problem 20C from codeforces: http://codeforces.ru/contest/20/problem/C
 
 **************************************************************************************/
+
 #include <iostream>
 #include <fstream>
 #include <cmath>
