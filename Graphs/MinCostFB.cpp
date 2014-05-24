@@ -2,7 +2,8 @@
     
      Min Cost Flow (or Min Cost Max Flow) algorithm with
      Ford-Bellman algorithm as shortest path search method. 
-     Works ~O(N ^ 6). Less on practice. Much less for bipartite matching case.
+     Works O(N ^ 6). Less on practice. 
+     Runs in O(N ^ 4) for bipartite matching case.
      
      Based on problem 394 from informatics.mccme.ru 
      http://informatics.mccme.ru//mod/statements/view3.php?chapterid=394
