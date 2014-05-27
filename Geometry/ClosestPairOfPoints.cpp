@@ -48,12 +48,12 @@ double closest_pair(point p[], int n) {
 		return d;
 	}
 	int m = n / 2;
-	double dl = closest_pair(p, m);
-	double dr = closest_pair(p + m, n - m);
+	double dl = closest_pair(p, m); // left
+	double dr = closest_pair(p + m, n - m); //right
 	double x = p[m].x;
-	double d = min(dl, dr);
+	double d = min(dl, dr); 
 	int il = 0, ir = m, i = 0;
-	while (il < m && ir < n) {
+	while (il < m && ir < n) { // merging two halves
 		if (p[il].y < p[ir].y)
 			aux[i ++] = p[il ++];
 		else
@@ -65,7 +65,7 @@ double closest_pair(point p[], int n) {
 		aux[i ++] = p[ir ++];
 	for (int j = 0 ; j < n ; j ++)
 		p[j] = aux[j];
-	for (int j = 0 ; j < n ; j ++) {
+	for (int j = 0 ; j < n ; j ++) { // 2d x d box
 		for (int k = j + 1 ; k < n && p[j].dist_to(p[k]) < d ; k ++) {
 			if (d > p[j].dist_to(p[k])) {
 				d = p[j].dist_to(p[k]);
