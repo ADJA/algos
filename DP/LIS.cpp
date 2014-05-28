@@ -1,8 +1,8 @@
 /****************************************************************************************************
-    
-	 Finding Longest Increasing Sequence in O(NlogN)
-	 About it: http://e-maxx.ru/algo/longest_increasing_subseq_log
-	 Based on problem http://informatics.mccme.ru/mod/statements/view3.php?id=766&chapterid=1794
+
+	Finding Longest Increasing Sequence in O(NlogN)
+	About it: http://e-maxx.ru/algo/longest_increasing_subseq_log
+	Based on problem http://informatics.mccme.ru/mod/statements/view3.php?id=766&chapterid=1794
 
 ****************************************************************************************************/
 

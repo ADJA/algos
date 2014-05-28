@@ -1,5 +1,5 @@
 /**********************************************************************
-    
+
 	Segment Tree with assignment and sum on the interval
 	Can be used in problem D from CFR #200: 
 	http://codeforces.ru/contest/343/problem/D
@@ -22,7 +22,7 @@ int a[MAXN];
 vector <node> tree;
 
 void build (int v, int L, int R, int a[]) {    	
-    if ( L == R ) {
+	if ( L == R ) {
 		tree[v].sum = tree[v].val = a[L];
 		tree[v].size = 1;
 	}

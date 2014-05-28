@@ -1,12 +1,12 @@
 /************************************************************************************
-    
-     Min Cost Flow (or Min Cost Max Flow) algorithm with
-     Dijkstra algorithm (with potentials) as shortest path search method. 
-     Works O(N ^ 5) or (N * M ^ 2 * logN). Less on practice. 
-     Runs in O(N ^ 3) for bipartite matching case.
-     
-     Based on problem 394 from informatics.mccme.ru 
-     http://informatics.mccme.ru//mod/statements/view3.php?chapterid=394
+
+	Min Cost Flow (or Min Cost Max Flow) algorithm with
+	Dijkstra algorithm (with potentials) as shortest path search method. 
+	Works O(N ^ 5) or (N * M ^ 2 * logN). Less on practice. 
+	Runs in O(N ^ 3) for bipartite matching case.
+
+	Based on problem 394 from informatics.mccme.ru 
+	http://informatics.mccme.ru//mod/statements/view3.php?chapterid=394
 
 ************************************************************************************/
 
@@ -48,7 +48,7 @@ long long dist[MAXN];
 int par[MAXN];
 int edge_num;
 int s = 0, t = MAXN - 1;
-                      	
+
 void fordBellman() {
 	for (int i = s; i <= t; i++) 
 		dist[i] = INF;
@@ -111,9 +111,9 @@ long long minCost(int flow) {
 		phi[i] = dist[i];
 
 	while (true) {
-	
+
 		dijkstra();
-		
+
 		if (dist[t] == INF)
 			return result;
 
@@ -167,15 +167,15 @@ int main() {
 	for (int i = 1; i <= n; i++)
 		for (int j = 1; j <= n; j++)
 			scanf("%d", &cost[i][j]);
-	
+
 	t = 2 * n + 1;
 
 	for (int i = 1; i <= n; i++) 
 		addEdge(s, i, 1, 0);
-			
+
 	for (int i = n + 1; i <= 2 * n; i++) 
 		addEdge(i, t, 1, 0);
-	
+
 	for (int i = 1; i <= n; i++)
 		for (int j = 1; j <= n; j++)
 			addEdge(i, n + j, 1, cost[i][j]);

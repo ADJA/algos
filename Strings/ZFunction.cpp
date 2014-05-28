@@ -2,7 +2,7 @@
 
 	Z function. O(N)
 
-    About it: http://e-maxx.ru/algo/z_function
+	About it: http://e-maxx.ru/algo/z_function
 	Based on problem 1324 from informatics.mccme.ru:
 	http://informatics.mccme.ru/mod/statements/view3.php?id=241&chapterid=1324
 

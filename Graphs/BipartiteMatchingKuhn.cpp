@@ -1,5 +1,5 @@
 /**************************************************************************************
-    
+
 	Kuhn algorithm for maximum matching in bipartite graph. Works in O(N * M)
 	More about it: http://e-maxx.ru/algo/kuhn_matching                      	
 	Based on problem 1683 from informatics.mccme.ru:

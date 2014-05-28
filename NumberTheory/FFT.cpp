@@ -1,8 +1,8 @@
 /********************************************************************************
-    
-     Fast Fourier transformation used to multiply long numbers.
-     Fast non-recursive version. O(NlogN).
-     Based on problem 317 from E-Olimp: http://www.e-olimp.com.ua/problems/317
+
+	Fast Fourier transformation used to multiply long numbers.
+	Fast non-recursive version. O(NlogN).
+	Based on problem 317 from E-Olimp: http://www.e-olimp.com.ua/problems/317
 
 ********************************************************************************/
 
@@ -76,7 +76,7 @@ void readPolynom(comp p[], int &len, bool space) {
 	len = 1;
 	while (len < (int) s.length())
 		len *= 2;
-	
+
 	memset(p, 0, sizeof(p));
 
 	int pos = 0;
@@ -121,6 +121,6 @@ int main() {
 	for (int i = ans_ind; i >= 0; i--)
 		printf("%d", ans[i]);
 	printf("\n");
-	
+
 	return 0;
 }

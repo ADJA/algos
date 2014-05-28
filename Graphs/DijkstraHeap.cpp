@@ -1,7 +1,7 @@
 /**************************************************************************************
-    
-     Dijkstra on heap for sparse graphs - O(MlogM)
-     Based on problem 20C from codeforces: http://codeforces.ru/contest/20/problem/C
+
+	Dijkstra on heap for sparse graphs - O(MlogM)
+	Based on problem 20C from codeforces: http://codeforces.ru/contest/20/problem/C
 
 **************************************************************************************/
 

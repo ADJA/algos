@@ -2,7 +2,7 @@
 
 	Prefix function. O(N)
 
-    About it: http://e-maxx.ru/algo/prefix_function
+	About it: http://e-maxx.ru/algo/prefix_function
 	Based on problem 1323 from informatics.mccme.ru:
 	http://informatics.mccme.ru/mod/statements/view3.php?id=241&chapterid=1323
 

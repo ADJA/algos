@@ -1,10 +1,10 @@
 /********************************************************************************
 
-Structure implementing long arithmetic in C++
-Analogue to BigInteger in Java.
-Tested on many problems.
+	Structure implementing long arithmetic in C++
+	Analogue to BigInteger in Java.
+	Tested on many problems.
 
-TODO: list some problems
+	TODO: list some problems
 
 ********************************************************************************/
 

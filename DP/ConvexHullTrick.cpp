@@ -1,7 +1,7 @@
 /********************************************************************************
-    
-     Convex Hull trick. About it: http://wcipeg.com/wiki/Convex_hull_trick
-	 Based on CFR #189, task C: http://codeforces.ru/contest/319/problem/C
+
+	Convex Hull trick. About it: http://wcipeg.com/wiki/Convex_hull_trick
+	Based on CFR #189, task C: http://codeforces.ru/contest/319/problem/C
 
 ********************************************************************************/
 

@@ -1,8 +1,8 @@
 /*************************************************************************************
-    
+
 	Cartesian tree using implicit keys. Implementation below contains
 	array segment reverse and finding range minimum. O(NlogN) on operation.
-	
+
 	Based on problem 111240 from informatics.mccme.ru: 
 	http://informatics.mccme.ru/mod/statements/view3.php?chapterid=111240
 

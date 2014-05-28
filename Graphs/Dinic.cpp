@@ -1,8 +1,8 @@
 /********************************************************************************
-    
-     MaxFlow Dinic algorithm with scaling. ~ O(NMlogN)
-     Based on problem 2784 from informatics.mccme.ru 
-     http://informatics.mccme.ru/mod/statements/view3.php?chapterid=2784#1
+
+	MaxFlow Dinic algorithm with scaling. ~ O(NMlogN)
+	Based on problem 2784 from informatics.mccme.ru 
+	http://informatics.mccme.ru/mod/statements/view3.php?chapterid=2784#1
 
 ********************************************************************************/
 
@@ -44,7 +44,7 @@ void add_edge(int a, int b, int c, int ind) {
 	edge ed;
 
 	//keep edges in vector: e[ind] - direct edge, e[ind ^ 1] - back edge 
-	
+
 	ed.a = a; ed.b = b; ed.f = 0; ed.c = c; ed.ind = ind;
 	g[a].push_back(e.size());
 	e.push_back(ed);
@@ -115,7 +115,7 @@ void dinic() {
 			pt[i] = 0;
 
 		int pushed;
-		
+
 		while (pushed = dfs(1, lim)) { 
 			flow = flow + lim;
 		}
@@ -137,6 +137,6 @@ int main() {
 	dinic();
 
 	cout << flow << endl;
-    
-    return 0;
+
+	return 0;
 }
