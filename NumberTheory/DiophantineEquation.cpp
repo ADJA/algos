@@ -1,7 +1,7 @@
 /************************************************************************************
 
 	Solving Diophantine equations in form of a * x + b * y = c
-	
+
 	Uses extended Euclid algorithm 
 	(which finds such x, y that a * x + b * y = gcd(a, b))
 
@@ -72,14 +72,14 @@ int main() {
 
 	cin >> a >> b >> c;
 
-    // Find any solution
+	// Find any solution
 	solveDiophantine(a, b, c, x, y);
 
-    // In this problem we search for solution with minimum x >= 0
-    // a * x + b * y = gcd(a, b)
-    // now for any integer k: a * (x + k * b / g) + b * (y - k * a / g) = gcd(a, b)
+	// In this problem we search for solution with minimum x >= 0
+	// a * x + b * y = gcd(a, b)
+	// now for any integer k: a * (x + k * b / g) + b * (y - k * a / g) = gcd(a, b)
 
-    g = gcd(a, b);
+	g = gcd(a, b);
 
 	long long add = b / g;
 	long long num = 0;
@@ -87,7 +87,7 @@ int main() {
 		num = (long long) floor(1.0 * -x / add);
 	else
 		num = (long long) ceil(1.0 * -x / add);
-	
+
 	x = x + b / g * num;
 	y = y - a / g * num;
 
