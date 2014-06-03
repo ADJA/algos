@@ -31,53 +31,53 @@ struct point {
 	}
 };
 
-point aux[MAXN], P[MAXN];
+point aux[MAXN], P[MAXN], v[MAXN]; int vn;
 
 int a, b, n;
 double ans = inf;
 
 // ans contains closest distance, a, b - indices of points.
-double closest_pair(point p[], int n) {
-	if (n <= 1) return inf;
+void closest_pair(point p[], int n) {
+	if (n <= 1) return ;
 	if (n == 2) {
 		if (p[0].y > p[1].y)
 			swap(p[0], p[1]);
 		double d = p[0].dist_to(p[1]);
 		if (d < ans)
 			ans = d, a = p[0].ind, b = p[1].ind;
-		return d;
+		return;
 	}
 	int m = n / 2;
-	double dl = closest_pair(p, m); // left
-	double dr = closest_pair(p + m, n - m); //right
-	double x = p[m].x;
-	double d = min(dl, dr); 
+	double x = p[m].x;	
+	closest_pair(p, m); // left
+	closest_pair(p + m, n - m); //right
+
 	int il = 0, ir = m, i = 0;
 	while (il < m && ir < n) { // merging two halves
-		if (p[il].y < p[ir].y)
-			aux[i ++] = p[il ++];
-		else
-			aux[i ++] = p[ir ++];
+		if (p[il].y < p[ir].y) aux[i ++] = p[il ++];
+		else aux[i ++] = p[ir ++];
 	}
 	while (il < m)
 		aux[i ++] = p[il ++];
 	while (ir < n)
 		aux[i ++] = p[ir ++];
-	for (int j = 0 ; j < n ; j ++)
+		
+	vn = 0;
+	for (int j = 0 ; j < n ; j ++) { // copying back into p
 		p[j] = aux[j];
-	for (int j = 0 ; j < n ; j ++) { // 2d x d box
-		for (int k = j + 1 ; k < n && p[j].dist_to(p[k]) < d ; k ++) {
-			if (d > p[j].dist_to(p[k])) {
-				d = p[j].dist_to(p[k]);
-				if (ans > d) {
-					ans = d;
-					a = p[k].ind, b = p[j].ind;
-				}
-			}			
-
-		}
+		if (fabs(p[j].x - x) < ans) // looking at the strip of width 2*ans
+			v[vn ++] = p[j];
 	}
-	return d;
+		
+	for (int j = 0 ; j < vn ; j ++) { // (2*ans) x (ans) box
+		for (int k = j + 1 ; k < vn && v[k].y - v[j].y < ans ; k ++) {
+			double d = v[j].dist_to(v[k]);
+			if (ans > d) {
+				ans = d;
+				a = v[k].ind, b = v[j].ind;
+			}
+		}			
+	}
 }
 
 int main() {
