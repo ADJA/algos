@@ -2,7 +2,10 @@
 
 	Convex Hull [ Graham-Andrew method, O(NlogN) ]
 	Based on problem 638 from informatics.mccme.ru: 
-	http://informatics.mccme.ru/mod/statements/view3.php?chapterid=638#1
+	http://informatics.mccme.ru/mod/statements/view3.php?chapterid=638
+
+	Tested on problem 290 from informatics.mccme.ru: 
+	http://informatics.mccme.ru/mod/statements/view3.php?id=&chapterid=290
 
 **********************************************************************************/
 
@@ -31,12 +34,17 @@ bool cmp(point a, point b) {
 	return (a.x < b.x || (a.x == b.x && a.y < b.y));
 }
 
+bool eq(point a, point b) {
+	return (a.x == b.x && a.y == b.y);
+}
+
 bool isCCW(point a, point b, point c) {
 	return a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y) > 0;
 }
 
 void setConvexHull(vector <point> p, vector <point> &h) {
 	sort(p.begin(), p.end(), cmp);
+	p.erase(unique(p.begin(), p.end(), eq), p.end());
 
 	vector <point> up, down;
 	point head = p[0], tail = p.back();
