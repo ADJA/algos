@@ -1,7 +1,7 @@
 /*************************************************************************************
 
 	Cartesian tree. Can be used as a balanced binary search tree.
-	O(NlogN) on operation.
+	O(logN) on operation.
 
 	Based on problem 2782 from informatics.mccme.ru: 
 	http://informatics.mccme.ru/mod/statements/view3.php?chapterid=2782
