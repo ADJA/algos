@@ -49,7 +49,8 @@ vector <node> trie;
 
 void trieInsert(char s[MAXN]) {
 	int cur_node = 0;
-	for (int i = 0; i < strlen(s); i++) {
+	int len = strlen(s);
+	for (int i = 0; i < len; i++) {
 		int go = trie[cur_node].go[s[i]];
 		if (go == 0) {
 			node add;
@@ -122,7 +123,8 @@ int main() {
 
 	while (gets(s)) {
 		int cur_node = 0;
-		for (int i = 0; i < strlen(s); i++) {
+		int len = strlen(s);
+		for (int i = 0; i < len; i++) {
 			cur_node = go(cur_node, s[i]);
 			if (trie[cur_node].is_word) {
 				puts(s);
