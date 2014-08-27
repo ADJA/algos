@@ -2,7 +2,7 @@
 
 	Trie. Builds tree from the set of strings. O(total length of strings)
 
-	This code counts number of different substrings in the string.
+	This code counts number of different substrings in the string.           
 	Based on problem B from here: http://codeforces.ru/gym/100133
 
 ****************************************************************************/
