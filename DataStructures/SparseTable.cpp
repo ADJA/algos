@@ -39,7 +39,7 @@ void buildTable() {
 	numlog[1] = 0;
 	for (int i = 2; i <= n; i++)
 		numlog[i] = numlog[i / 2] + 1;
-	
+
 	for (int i = 0; i <= numlog[n]; i++) {
 		int curlen = 1 << i;
 		for (int j = 1; j <= n; j++) {
@@ -67,14 +67,14 @@ int main() {
 		scanf("%d", &a[i]);
 
 	buildTable();
-	
-    scanf("%d", &m);
 
-    for (int i = 1; i <= m; i++) {
-    	int l, r;
-    	scanf("%d %d", &l, &r);
-        printf("%d ", getMax(l, r));
-    }
+	scanf("%d", &m);
+
+	for (int i = 1; i <= m; i++) {
+		int l, r;
+		scanf("%d %d", &l, &r);
+		printf("%d ", getMax(l, r));
+	}
 
 	return 0;
 }
