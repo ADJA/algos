@@ -1,10 +1,10 @@
 /************************************************************************************
 
 	Min Cost Flow (or Min Cost Max Flow) algorithm with
-	Dijkstra algorithm (with potentials) as shortest path search method. 
-	(Dijkstra for dense graphs running in O(N^2))
-
-	Works O(N ^ 5). Less on practice. 
+	Dijkstra algorithm (with potentials) as shortest path search method.
+	(Dijkstra on heap for sparse graphs)
+ 
+	Works (N * M ^ 2 * logN). Less on practice. 
 	Runs in O(N ^ 3) for bipartite matching case.
 
 	Based on problem 394 from informatics.mccme.ru 
@@ -45,8 +45,8 @@ int cost[MAXN][MAXN];
 vector <edge> e;
 vector <int> g[MAXN];
 long long phi[MAXN];
+priority_queue < pair < long long, int > > q;
 long long dist[MAXN];
-bool used[MAXN];
 int par[MAXN];
 int edge_num;
 int s = 0, t = MAXN - 1;
@@ -74,30 +74,32 @@ void fordBellman() {
 }
 
 void dijkstra() {
+	while (!q.empty())
+		q.pop();
 	for (int i = s; i <= t; i++) {
 		dist[i] = INF;
-		used[i] = false;
+		q.push(make_pair(-dist[i], i));
 	}
 	dist[s] = 0;
-
-	for (int i = s; i <= t; i++) {
-		int cur = -1;
-		for (int j = s; j <= t; j++) 	
-			if (!used[j])
-				if (cur == -1 || dist[j] < dist[cur])
-					cur = j;     
-
-		used[cur] = true;
-
-		for (int j = 0; j < (int) g[cur].size(); j++) {
-			int ind = g[cur][j];
+	q.push(make_pair(0, s));
+	while (!q.empty()) {
+		int cur = q.top().second;
+		long long cur_dist = -q.top().first;
+		q.pop();
+		if (cur_dist > dist[cur])
+			continue;
+		if (dist[cur] == INF)
+			break;
+		for (int i = 0; i < (int) g[cur].size(); i++) {
+			int ind = g[cur][i];
 			if (e[ind].flow == e[ind].cap)
 				continue;
 			int to = e[ind].to;
-			int w = e[ind].cost + phi[cur] - phi[to];
-			if (dist[cur] + w < dist[to]) {
-				dist[to] = dist[cur] + w;
+			long long w = e[ind].cost + phi[cur] - phi[to];
+			if (cur_dist + w < dist[to]) {
+				dist[to] = cur_dist + w;
 				par[to] = ind;
+				q.push(make_pair(-dist[to], to));
 			}
 		}
 	}
