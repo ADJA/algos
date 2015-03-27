@@ -3,7 +3,7 @@
 	Finding Nth Catalan number modulo some mod 
 	(N <= 500000, mod is not necessary prime)
 	
-	Uses Eratosthenes sieve for factorization
+	Uses Eratosthenes sieve for fast factorization
 	Works in O(N * loglogN)
 
 	Based on problem 140 from acm.mipt.ru
