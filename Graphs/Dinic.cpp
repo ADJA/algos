@@ -1,6 +1,8 @@
 /********************************************************************************
 
-	MaxFlow Dinic algorithm with scaling. ~ O(NMlogN)
+	MaxFlow Dinic algorithm with scaling. 
+	O(NMlog|F|), where |F| — maxflow value.
+	
 	Based on problem 2784 from informatics.mccme.ru 
 	http://informatics.mccme.ru/mod/statements/view3.php?chapterid=2784#1
 
