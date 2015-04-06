@@ -135,8 +135,10 @@ struct BigInt {
 		string result = "";
 		for (int i = 0; i < (int)num.size(); i++) {
 			int cur = num[i];
-			while (cur) {
-				result += '0' + cur % 10;
+			for (int j = 1; j <= baseDigits; j++) {
+				if (cur == 0 && i == (int) num.size() - 1)
+					break;
+				result.append(1, (char) '0' + cur % 10);
 				cur /= 10;
 			}
 		}	
