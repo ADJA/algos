@@ -1,9 +1,9 @@
 /**************************************************************************************
 
-	Algorithm for finding all bridges in the graph (edges, after removal of
-	which graph divides into several components). O(M)
+    Algorithm for finding all bridges in the graph (edges, after removal of
+    which graph divides into several components). O(M)
 
-	Based on problem C from here: http://codeforces.ru/gym/100083
+    Based on problem C from here: http://codeforces.ru/gym/100083
 
 **************************************************************************************/
 
@@ -37,52 +37,52 @@ vector <int> bridges;
 int timer;
 
 void dfs(int v, int par = -1) {
-	used[v] = true;
-	timer++;
-	tin[v] = timer;
-	mn[v] = tin[v];
+    used[v] = true;
+    timer++;
+    tin[v] = timer;
+    mn[v] = tin[v];
 
-	for (int i = 0; i < (int) g[v].size(); i++) {
-		int to = g[v][i];
-		if (!used[to]) {
-			dfs(to, v);
-			if (mn[to] == tin[to]) {
-				bridges.push_back(ind[v][i]);
-			}
-			mn[v] = min(mn[v], mn[to]);
-		}
-		else if (to != par) {
-			mn[v] = min(mn[v], mn[to]);			
-		}
-	}
+    for (int i = 0; i < (int) g[v].size(); i++) {
+        int to = g[v][i];
+        if (!used[to]) {
+            dfs(to, v);
+            if (mn[to] == tin[to]) {
+                bridges.push_back(ind[v][i]);
+            }
+            mn[v] = min(mn[v], mn[to]);
+        }
+        else if (to != par) {
+            mn[v] = min(mn[v], mn[to]);
+        }
+    }
 }
 
 int main() {
-	assert(freopen("bridges.in","r",stdin));
-	assert(freopen("bridges.out","w",stdout));
+    assert(freopen("bridges.in","r",stdin));
+    assert(freopen("bridges.out","w",stdout));
 
-	scanf("%d %d", &n, &m);
+    scanf("%d %d", &n, &m);
 
-	for (int i = 1; i <= m; i++) {
-		int from, to;
-		scanf("%d %d", &from, &to);
+    for (int i = 1; i <= m; i++) {
+        int from, to;
+        scanf("%d %d", &from, &to);
 
-		g[from].push_back(to);
-		ind[from].push_back(i);
+        g[from].push_back(to);
+        ind[from].push_back(i);
 
-		g[to].push_back(from);
-		ind[to].push_back(i);
-	}
+        g[to].push_back(from);
+        ind[to].push_back(i);
+    }
 
-	for (int i = 1; i <= n; i++)
-		if (!used[i])
-			dfs(i);
+    for (int i = 1; i <= n; i++)
+        if (!used[i])
+            dfs(i);
 
-	sort(bridges.begin(), bridges.end());
+    sort(bridges.begin(), bridges.end());
 
-	printf("%d\n", (int) bridges.size());
-	for (int i = 0; i < (int) bridges.size(); i++)
-		printf("%d\n", bridges[i]);	
+    printf("%d\n", (int) bridges.size());
+    for (int i = 0; i < (int) bridges.size(); i++)
+        printf("%d\n", bridges[i]); 
 
-	return 0;
+    return 0;
 }

@@ -59,4 +59,4 @@ int main() {
         printf("%d\n", d[s][t]);
 
     return 0;
-}                             
+}

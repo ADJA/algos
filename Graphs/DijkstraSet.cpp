@@ -28,7 +28,7 @@ const long long INF = (long long)1e12;
 const int MAXN = 105000;
 
 struct edge {
-	int to, w;
+    int to, w;
 };
 
 int n, m;
@@ -40,54 +40,54 @@ vector <int> ans;
 edge e;
 
 int main() {
-	//freopen("input.txt","r",stdin);
-	//freopen("output.txt","w",stdout);
-	scanf("%d %d", &n, &m);
-	for (int i = 1; i <= m; i++) {
-		int a, b, w;
-		scanf("%d %d %d", &a, &b, &w);
-		e.to = b; e.w = w;
-		g[a].push_back(e);
-		e.to = a;
-		g[b].push_back(e);
-	}
+    //freopen("input.txt","r",stdin);
+    //freopen("output.txt","w",stdout);
+    scanf("%d %d", &n, &m);
+    for (int i = 1; i <= m; i++) {
+        int a, b, w;
+        scanf("%d %d %d", &a, &b, &w);
+        e.to = b; e.w = w;
+        g[a].push_back(e);
+        e.to = a;
+        g[b].push_back(e);
+    }
 
-	s.insert(make_pair(0, 1));
-	for (int i = 2; i <= n; i++) {
-		dist[i] = INF;
-		s.insert(make_pair(INF, i));
-	}
+    s.insert(make_pair(0, 1));
+    for (int i = 2; i <= n; i++) {
+        dist[i] = INF;
+        s.insert(make_pair(INF, i));
+    }
 
-	while (!s.empty()) {
-		int cur = s.begin()->second;
-		long long cur_dist = s.begin()->first;
-		s.erase(s.begin());
-		for (int i = 0; i < (int) g[cur].size(); i++) {
-			int to = g[cur][i].to, w = g[cur][i].w;
-			if (cur_dist + w < dist[to]) {
-				s.erase(make_pair(dist[to], to));
-				dist[to] = cur_dist + w;
-				par[to] = cur;
-				s.insert(make_pair(dist[to], to));
-			}
-		}
-	}
+    while (!s.empty()) {
+        int cur = s.begin()->second;
+        long long cur_dist = s.begin()->first;
+        s.erase(s.begin());
+        for (int i = 0; i < (int) g[cur].size(); i++) {
+            int to = g[cur][i].to, w = g[cur][i].w;
+            if (cur_dist + w < dist[to]) {
+                s.erase(make_pair(dist[to], to));
+                dist[to] = cur_dist + w;
+                par[to] = cur;
+                s.insert(make_pair(dist[to], to));
+            }
+        }
+    }
 
-	if (dist[n] == INF) {
-		printf("-1");
-		return 0;
-	}
+    if (dist[n] == INF) {
+        printf("-1");
+        return 0;
+    }
 
-	int cur = n;
-	while (par[cur] != 0) {
-		ans.push_back(cur);
-		cur = par[cur];
-	}
-	ans.push_back(1);
+    int cur = n;
+    while (par[cur] != 0) {
+        ans.push_back(cur);
+        cur = par[cur];
+    }
+    ans.push_back(1);
 
-	reverse(ans.begin(), ans.end());
-	for (int i = 0; i < (int) ans.size(); i++)
-		printf("%d ", ans[i]);
+    reverse(ans.begin(), ans.end());
+    for (int i = 0; i < (int) ans.size(); i++)
+        printf("%d ", ans[i]);
 
-	return 0;
+    return 0;
 }

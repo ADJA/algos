@@ -1,13 +1,13 @@
 /*******************************************************************************
 
-	Finding Nth Catalan number modulo some mod 
-	(N <= 500000, mod is not necessary prime)
-	
-	Uses Eratosthenes sieve for fast factorization
-	Works in O(N * loglogN)
+    Finding Nth Catalan number modulo some mod 
+    (N <= 500000, mod is not necessary prime)
+    
+    Uses Eratosthenes sieve for fast factorization
+    Works in O(N * loglogN)
 
-	Based on problem 140 from acm.mipt.ru
-	http://acm.mipt.ru/judge/problems.pl?problem=140
+    Based on problem 140 from acm.mipt.ru
+    http://acm.mipt.ru/judge/problems.pl?problem=140
 
 *******************************************************************************/
 
@@ -38,44 +38,44 @@ int p[2 * MAXN];
 long long ans = 1;
 
 int main() {
-	//assert(freopen("input.txt","r",stdin));
-	//assert(freopen("output.txt","w",stdout));
-	
-	scanf("%d %d", &n, &mod);
+    //assert(freopen("input.txt","r",stdin));
+    //assert(freopen("output.txt","w",stdout));
+    
+    scanf("%d %d", &n, &mod);
 
-	for (int i = 2; i <= 2 * n; i++) {
-		if (sieve[i] == 0) {
-			for (int j = 2 * i; j <= 2 * n; j += i) {
-				if (sieve[j] == 0)
-					sieve[j] = i;
-			}
-		}
-	}
+    for (int i = 2; i <= 2 * n; i++) {
+        if (sieve[i] == 0) {
+            for (int j = 2 * i; j <= 2 * n; j += i) {
+                if (sieve[j] == 0)
+                    sieve[j] = i;
+            }
+        }
+    }
 
-	for (int i = n + 2; i <= 2 * n; i++) {
-		int x = i;
-		while (sieve[x] != 0) {
-			p[sieve[x]]++;
-			x /= sieve[x];
-		}
-		p[x]++;
-	}
+    for (int i = n + 2; i <= 2 * n; i++) {
+        int x = i;
+        while (sieve[x] != 0) {
+            p[sieve[x]]++;
+            x /= sieve[x];
+        }
+        p[x]++;
+    }
 
-	for (int i = 1; i <= n; i++) {
-		int x = i;
-		while (sieve[x] != 0) {
-			p[sieve[x]]--;
-			x /= sieve[x];
-		}
-		p[x]--;
-	}
+    for (int i = 1; i <= n; i++) {
+        int x = i;
+        while (sieve[x] != 0) {
+            p[sieve[x]]--;
+            x /= sieve[x];
+        }
+        p[x]--;
+    }
 
-	for (int i = 2; i <= 2 * n; i++) {
-		for (int j = 1; j <= p[i]; j++)	
-			ans = (1ll * ans * i) % mod;
-	}
+    for (int i = 2; i <= 2 * n; i++) {
+        for (int j = 1; j <= p[i]; j++) 
+            ans = (1ll * ans * i) % mod;
+    }
 
-	cout << ans % mod << endl;
+    cout << ans % mod << endl;
 
-	return 0;
+    return 0;
 }
