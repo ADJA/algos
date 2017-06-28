@@ -1,10 +1,10 @@
 /*************************************************************************************
 
-	Sparse table. Solves static RMQ problem (without element changes).
-	O(NlogN) on precalculation, O(1) on query.
+    Sparse table. Solves static RMQ problem (without element changes).
+    O(NlogN) on precalculation, O(1) on query.
 
-	Based on problem 3309 from informatics.mccme.ru: 
-	http://informatics.mccme.ru/moodle/mod/statements/view.php?chapterid=3309
+    Based on problem 3309 from informatics.mccme.ru: 
+    http://informatics.mccme.ru/moodle/mod/statements/view.php?chapterid=3309
 
 *************************************************************************************/
 
@@ -36,45 +36,45 @@ int table[MAXLOG][MAXN];
 int numlog[MAXN];
 
 void buildTable() {
-	numlog[1] = 0;
-	for (int i = 2; i <= n; i++)
-		numlog[i] = numlog[i / 2] + 1;
+    numlog[1] = 0;
+    for (int i = 2; i <= n; i++)
+        numlog[i] = numlog[i / 2] + 1;
 
-	for (int i = 0; i <= numlog[n]; i++) {
-		int curlen = 1 << i;
-		for (int j = 1; j <= n; j++) {
-			if (i == 0) {
-				table[i][j] = a[j];
-				continue;
-			}
-			table[i][j] = max(table[i - 1][j], table[i - 1][j + curlen / 2]);
-		}
-	}
+    for (int i = 0; i <= numlog[n]; i++) {
+        int curlen = 1 << i;
+        for (int j = 1; j <= n; j++) {
+            if (i == 0) {
+                table[i][j] = a[j];
+                continue;
+            }
+            table[i][j] = max(table[i - 1][j], table[i - 1][j + curlen / 2]);
+        }
+    }
 }
 
 int getMax(int l, int r) {
-	int curlog = numlog[r - l + 1];
-	return max(table[curlog][l], table[curlog][r - (1 << curlog) + 1]); 
+    int curlog = numlog[r - l + 1];
+    return max(table[curlog][l], table[curlog][r - (1 << curlog) + 1]); 
 }
 
 int main() {
-	//assert(freopen("input.txt","r",stdin));
-	//assert(freopen("output.txt","w",stdout));
+    //assert(freopen("input.txt","r",stdin));
+    //assert(freopen("output.txt","w",stdout));
 
-	scanf("%d", &n);
+    scanf("%d", &n);
 
-	for (int i = 1; i <= n; i++)
-		scanf("%d", &a[i]);
+    for (int i = 1; i <= n; i++)
+        scanf("%d", &a[i]);
 
-	buildTable();
+    buildTable();
 
-	scanf("%d", &m);
+    scanf("%d", &m);
 
-	for (int i = 1; i <= m; i++) {
-		int l, r;
-		scanf("%d %d", &l, &r);
-		printf("%d ", getMax(l, r));
-	}
+    for (int i = 1; i <= m; i++) {
+        int l, r;
+        scanf("%d %d", &l, &r);
+        printf("%d ", getMax(l, r));
+    }
 
-	return 0;
+    return 0;
 }

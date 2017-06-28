@@ -1,8 +1,8 @@
 /****************************************************************************************************
 
-	Finding Longest Increasing Sequence in O(NlogN)
-	About it: http://e-maxx.ru/algo/longest_increasing_subseq_log
-	Based on problem http://informatics.mccme.ru/mod/statements/view3.php?id=766&chapterid=1794
+    Finding Longest Increasing Sequence in O(NlogN)
+    About it: http://e-maxx.ru/algo/longest_increasing_subseq_log
+    Based on problem http://informatics.mccme.ru/mod/statements/view3.php?id=766&chapterid=1794
 
 ****************************************************************************************************/
 
@@ -37,44 +37,44 @@ vector <int> ansv;
 int ans = 1;
 
 int main() {
-	//assert(freopen("input.txt","r",stdin));
-	//assert(freopen("output.txt","w",stdout));
+    //assert(freopen("input.txt","r",stdin));
+    //assert(freopen("output.txt","w",stdout));
 
-	scanf("%d", &n);
-	scanf("%d %d %d %d", &a[1], &k, &b, &m);
+    scanf("%d", &n);
+    scanf("%d %d %d %d", &a[1], &k, &b, &m);
 
-	for (int i = 2; i <= n; i++)
-		a[i] = (k * a[i - 1] + b) % m; 
+    for (int i = 2; i <= n; i++)
+        a[i] = (k * a[i - 1] + b) % m; 
 
-	d[0] = -INF;
-	for (int i = 1; i <= n; i++)
-		d[i] = INF;
+    d[0] = -INF;
+    for (int i = 1; i <= n; i++)
+        d[i] = INF;
 
-	for (int i = 1; i <= n; i++) {
-		int pos = upper_bound(d + 1, d + n + 1, a[i]) - d;
-		if (d[pos - 1] < a[i] && a[i] < d[pos]) {
-			d[pos] = a[i];
-			ind[pos] = i;
-			pr[i] = ind[pos - 1];
-			if (pos > ans) {
-				ans = pos;
-			}
-		}
-	}
+    for (int i = 1; i <= n; i++) {
+        int pos = upper_bound(d + 1, d + n + 1, a[i]) - d;
+        if (d[pos - 1] < a[i] && a[i] < d[pos]) {
+            d[pos] = a[i];
+            ind[pos] = i;
+            pr[i] = ind[pos - 1];
+            if (pos > ans) {
+                ans = pos;
+            }
+        }
+    }
 
-	if (ans == 1) {
-		printf("%d", a[1]);
-	}
-	else {
-		int cur = ind[ans];
-		while (cur != 0) {
-			ansv.push_back(a[cur]);
-			cur = pr[cur];
-		}
+    if (ans == 1) {
+        printf("%d", a[1]);
+    }
+    else {
+        int cur = ind[ans];
+        while (cur != 0) {
+            ansv.push_back(a[cur]);
+            cur = pr[cur];
+        }
 
-		for (int i = (int) ansv.size() - 1; i >= 0; i--)
-			printf("%d ", ansv[i]);	
-	}
+        for (int i = (int) ansv.size() - 1; i >= 0; i--)
+            printf("%d ", ansv[i]); 
+    }
 
-	return 0;                                      
+    return 0;
 }

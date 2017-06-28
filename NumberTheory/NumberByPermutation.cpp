@@ -1,10 +1,10 @@
 /*******************************************************************************
 
-	Finding number of permutation in lexicographical order
-	Works in O(n^2)
+    Finding number of permutation in lexicographical order
+    Works in O(n^2)
 
-	Based on problem 2388 from e-olimp.com
-	http://www.e-olimp.com/problems/2388
+    Based on problem 2388 from e-olimp.com
+    http://www.e-olimp.com/problems/2388
 
 *******************************************************************************/
 
@@ -36,31 +36,31 @@ bool used[MAXN];
 int ans;
 
 int main() {
-	//assert(freopen("input.txt","r",stdin));
-	//assert(freopen("output.txt","w",stdout));
+    //assert(freopen("input.txt","r",stdin));
+    //assert(freopen("output.txt","w",stdout));
 
-	scanf("%d", &n);
-	for (int i = 1; i <= n; i++)
-		scanf("%d", &p[i]);
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++)
+        scanf("%d", &p[i]);
 
-	f[0] = 1;
-	for (int i = 1; i <= n; i++)
-		f[i] = f[i - 1] * i;
+    f[0] = 1;
+    for (int i = 1; i <= n; i++)
+        f[i] = f[i - 1] * i;
 
-	ans = 1;
-	for (int i = 1; i <= n; i++) {
-		for (int j = 1; j <= n; j++) {
-			if (used[j])
-				continue;
-			if (p[i] == j) {
-				used[j] = true;
-				break;
-			}
-			ans += f[n - i];	
-		}                  
-	}
+    ans = 1;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+            if (used[j])
+                continue;
+            if (p[i] == j) {
+                used[j] = true;
+                break;
+            }
+            ans += f[n - i];    
+        }                  
+    }
 
-	printf("%d\n", ans);
+    printf("%d\n", ans);
 
-	return 0;
+    return 0;
 }
