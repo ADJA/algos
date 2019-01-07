@@ -81,5 +81,3 @@ For any suggestions, corrections or questions contact [adilet@adilet.org](mailto
 * [Trie](https://github.com/ADJA/algos/blob/master/Strings/Trie.cpp) – Builds trie (tree with characters on the edges) from the set of strings. This code counts number of different substrings in the string.
 * [Suffix Tree. Ukkonen's algorithm](https://github.com/ADJA/algos/blob/master/Strings/UkkonenSuffixTree.cpp) – Ukkonen's algorithm for building the suffix tree. Uses sibling lists in the nodes. This code counts number of different substrings in the string.
 * [Z function](https://github.com/ADJA/algos/blob/master/Strings/ZFunction.cpp) – Calculating the Z-function of the given string.
-
-Another list of algorithms here with some additional information is available at [adilet.org/algos](http://adilet.org/algos/).
