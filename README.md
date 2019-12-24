@@ -61,6 +61,7 @@ For any suggestions, corrections or questions contact [adilet@adilet.org](mailto
 * [Diophantine equation](https://github.com/ADJA/algos/blob/master/NumberTheory/DiophantineEquation.cpp) – Solving Diophantine equations in form of a * x + b * y = c. Uses extended Euclid algorithm (which finds such x, y that a * x + b * y = gcd(a, b)).
 * [Fast Fourier transformation](https://github.com/ADJA/algos/blob/master/NumberTheory/FFT.cpp) – Fast Fourier transformation used to multiply long numbers. Fast non-recursive version.
 * [Gauss](https://github.com/ADJA/algos/blob/master/NumberTheory/Gauss.cpp) – Gauss method of solving systems of linear algebraic equation.
+* [Matrix](https://github.com/ADJA/algos/blob/master/NumberTheory/Matrix.cpp) – Matrix multiplication and fast binary power.
 * [Number by permutation](https://github.com/ADJA/algos/blob/master/NumberTheory/NumberByPermutation.cpp) – Finding number of permutation in lexicographical order.
 * [Permutation by number](https://github.com/ADJA/algos/blob/master/NumberTheory/PermutationByNumber.cpp) – Finding permutation by its length and number in lexicographical order.
 
