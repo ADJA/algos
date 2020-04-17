@@ -28,32 +28,59 @@
 
 using namespace std;
 
-const int MAXN = 105000;
-const int mod = (int) 1e9 + 7;
-const int p = 53;       
+class Hashing {
+private:
+    const int mod = (int) 1e9 + 7;
+    const int p = 53; // should be prime
+    string s;
+    int n;
+    vector<long long> h1, h2;
+    vector<long long> p1, p2;
+public:
+    void init(string st) {
+        s = st;
+        n = (int) s.length();
+
+        p1.assign(n + 1, 1); 
+        p2.assign(n + 1, 1);
+        for (int i = 1; i <= n; i++) {
+            p1[i] = p1[i - 1] * p;
+            p2[i] = p2[i - 1] * p % mod; 
+        }
+
+        char minChar = s[0];
+        for (int i = 0; i < n; i++) minChar = min(minChar, s[i]);
+
+        h1.assign(n, 0); 
+        h2.assign(n, 0);
+        h1[0] = s[0] - minChar + 1;
+        h2[0] = (s[0] - minChar + 1) % mod;
+        for (int i = 1; i < n; i++) {
+            h1[i] = h1[i - 1] + p1[i] * (s[i] - minChar + 1);
+            h2[i] = (h2[i - 1] + p2[i] * (s[i] - minChar + 1)) % mod; 
+        }
+    }
+    long long getHash1(int l, int r) {
+        long long h = h1[r];
+        if (l > 0)
+            h -= h1[l - 1];
+        h *= p1[n - 1 - r];
+        return h;
+    }
+    long long getHash2(int l, int r) {
+        long long h = h2[r];
+        if (l > 0)
+            h = (h - h2[l - 1] + mod) % mod;
+        h = h * p2[n - 1 - r] % mod;
+        return h;
+    }
+    pair<long long, long long> getHash(int l, int r) {
+        return {getHash1(l, r), getHash2(l, r)};
+    }
+};
 
 string s;
 int n, m;
-long long h1[MAXN], h2[MAXN];
-long long pp1[MAXN], pp2[MAXN];
-
-long long getHash1(int l, int r) {
-    l--; r--;
-    long long h = h1[r];
-    if (l > 0)
-        h -= h1[l - 1];
-    h *= pp1[n - 1 - r];
-    return h;
-}
-
-long long getHash2(int l, int r) {
-    l--; r--;
-    long long h = h2[r];
-    if (l > 0)
-        h = (h - h2[l - 1] + mod) % mod;
-    h = (h * pp2[n - 1 - r]) % mod;
-    return h;
-}
 
 int main() {
     assert(freopen("substrcmp.in","r",stdin));
@@ -62,25 +89,16 @@ int main() {
     getline(cin, s);
     n = (int) s.length();
 
-    pp1[0] = 1; pp2[0] = 1;
-    for (int i = 1; i <= n; i++) {
-        pp1[i] = pp1[i - 1] * p;
-        pp2[i] = (pp2[i - 1] * p) % mod; 
-    }
-
-    h1[0] = s[0] - 'a' + 1;
-    h2[0] = (s[0] - 'a' + 1) % mod;
-    for (int i = 1; i < n; i++) {
-        h1[i] = h1[i - 1] + pp1[i] * (s[i] - 'a' + 1);
-        h2[i] = (h2[i - 1] + pp2[i] * (s[i] - 'a' + 1)) % mod; 
-    }
+    Hashing hashing;
+    hashing.init(s);
 
     scanf("%d", &m);
 
     for (int i = 1; i <= m; i++) {
         int a, b, c, d;
         scanf("%d %d %d %d", &a, &b, &c, &d);
-        if (getHash1(a, b) == getHash1(c, d) && getHash2(a, b) == getHash2(c, d))
+        a--; b--; c--; d--;
+        if (hashing.getHash(a, b) == hashing.getHash(c, d))
             puts("Yes");
         else
             puts("No");
