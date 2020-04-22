@@ -7,7 +7,7 @@ Every algorithm has a reference problem on which it was tested, and some notes a
 
 Feel free to use for any purposes (you may contact authors before, if you feel like it).
 
-For any suggestions, corrections or questions contact [adilet@adilet.org](mailto:adilet@adilet.org) or open issue and/or pull request here.
+For any suggestions, corrections or questions contact [adilet.zxy@gmail.com](mailto:adilet.zxy@gmail.com) or open issue and/or pull request here.
 
 ## List of algorithms
 
