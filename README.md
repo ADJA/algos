@@ -39,6 +39,7 @@ For any suggestions, corrections or questions contact [adilet@adilet.org](mailto
 * [Bellman-Ford algorithm](https://github.com/ADJA/algos/blob/master/Graphs/BellmanFord.cpp) – Bellman-Ford algorithm finding shortest distances from a single vertex in graph.
 * [Bipartite matching](https://github.com/ADJA/algos/blob/master/Graphs/BipartiteMatchingKuhn.cpp) – Kuhn algorithm for maximum matching in bipartite graph.
 * [Bridges search](https://github.com/ADJA/algos/blob/master/Graphs/BridgesSearch.cpp) – Algorithm for finding all bridges in the graph (edges, after removal of which graph divides into several components).
+* [Centroid decomposition](https://github.com/ADJA/algos/blob/master/Graphs/CentroidDecomposition.cpp) – Centroid decomposition of a tree.
 * [Cutpoints search](https://github.com/ADJA/algos/blob/master/Graphs/CutpointsSearch.cpp) – Algorithm for finding all cutpoints in the graph (vertices, after removal of which graph divides into several components).
 * [Dijkstra algorithm](https://github.com/ADJA/algos/blob/master/Graphs/DijkstraHeap.cpp) ([set version](https://github.com/ADJA/algos/blob/master/Graphs/DijkstraSet.cpp)) – Finding minimum distances from the single source with Dijkstra algorithm. No negative edges are allowed. Best for sparse graphs. Two versions using set and heap.
 * [Dinic maxflow](https://github.com/ADJA/algos/blob/master/Graphs/Dinic.cpp) – Dinic algorithm with scaling for finding the maximum flow.
