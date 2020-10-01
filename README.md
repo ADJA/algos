@@ -1,4 +1,4 @@
-# Algos
+# Algos : Important Algorithms and Data Structures
 
 Collection of different algorithms, used for programming competitions like ACM ICPC.
 
