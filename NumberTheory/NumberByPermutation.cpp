@@ -39,13 +39,13 @@ int main() {
     //assert(freopen("input.txt","r",stdin));
     //assert(freopen("output.txt","w",stdout));
 
-    scanf("%d", &n);
+    scanf("%d", &n);                            //scaning input of n
     for (int i = 1; i <= n; i++)
         scanf("%d", &p[i]);
 
-    f[0] = 1;
+    f[0] = 1;                                      //initializing first index of f to 0
     for (int i = 1; i <= n; i++)
-        f[i] = f[i - 1] * i;
+        f[i] = f[i - 1] * i;                    
 
     ans = 1;
     for (int i = 1; i <= n; i++) {
