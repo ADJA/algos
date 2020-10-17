@@ -15,6 +15,7 @@ For any suggestions, corrections or questions contact [adilet.zxy@gmail.com](mai
 
 * [Convex Hull trick](https://github.com/ADJA/algos/blob/master/DP/ConvexHullTrick.cpp) – Convex Hull trick is a geometry based dynamic programming modification. [More about it](http://wcipeg.com/wiki/Convex_hull_trick).
 * [Longest Increasing Sequence](https://github.com/ADJA/algos/blob/master/DP/LIS.cpp) – Fast way to find longest increasing subsequence (subsequence in which each next element is greater than previous).
+* [Longest Common Subsequence](https://github.com/ADJA/algos/blob/master/DP/lcs.cpp) - Optimal and efficient solution to find longest common subsequence (longest subsequence common to all sequences in a set of sequences (often just two sequences))
 
 ### Data Structures
 
